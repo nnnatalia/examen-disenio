@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 1</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 1 - Carrusel con JQuery</title>
+  <style>
+    .carrusel {
+      width: 100%;
+      height: 387px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    img {
+      width: 320px;
+      height: 194px;
+      opacity: 0.4;
+    }
+
+    .foto-grande {
+      opacity: 1;
+      transform: scale(2);
+    }
+  </style>
 </head>
+
 <body>
-    
+  <div class="carrusel">
+    <img src="img/image1.jpg" alt="cascada" class="image-1">
+    <img src="img/image2.jpg" alt="bosque" class="image-2">
+    <img src="img/image3.jpg" alt="lago" class="image-3">
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script>
+    jQuery(function ($) {
+      $(document).ready(function () {
+        $(".image-1").click(function () {
+          $(".image-1").addClass("foto-grande");
+          $(".image-2").removeClass("foto-grande");
+          $(".image-3").removeClass("foto-grande");
+        });
+        $(".image-2").click(function () {
+          $(".image-1").removeClass("foto-grande");
+          $(".image-2").addClass("foto-grande");
+          $(".image-3").removeClass("foto-grande");
+        });
+        $(".image-3").click(function () {
+          $(".image-1").removeClass("foto-grande");
+          $(".image-2").removeClass("foto-grande");
+          $(".image-3").addClass("foto-grande");
+        });
+      });
+    });
+  </script>
 </body>
+
 </html>
